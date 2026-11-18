@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nail Art by Veronika</title>
+
+    <meta
+      name="description"
+      content="Manicure, nail art, and care for your hands. Explore the selected nail designs by Veronika."
+    />
+
+    <meta name="theme-color" content="#fbf3e9" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header container" id="top">
+      <a class="logo" href="#top" aria-label="Veronika — home"> Veronika </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+        hidden
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li class="contact-dropdown">
+            <button class="nav-contact-toggle" id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-links">
+              Contact
+            </button>
+            <div class="contact-panel" id="contact-links" hidden>
+              <a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <button type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">Get in touch</button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <h1 id="hero-title">
+            Nail Art
+            <em>by Veronika</em>
+          </h1>
+
+          <p class="hero-description">
+            Manicure, nail art, and care for your hands.
+          </p>
+
+          <button class="button booking-link" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">
+            <span>Book Now</span>
+          </button>
+
+          <div class="social-links" aria-label="Social media">
+            <a
+              class="text-link"
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Instagram
+            </a>
+
+            <a
+              class="text-link"
+              href="https://www.whatsapp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            class="hero-photo"
+            src="./images/burgundy.jpg"
+            alt="Glossy burgundy manicure against a soft knitted sleeve"
+            width="736"
+            height="1104"
+            fetchpriority="high"
+          />
+
+          <img
+            class="hero-detail"
+            src="./images/floral.jpg"
+            alt="Pink and green manicure with delicate floral nail art"
+            width="446"
+            height="800"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section
+        class="gallery section container"
+        id="gallery"
+        aria-labelledby="gallery-title"
+      >
+        <div class="section-heading">
+          <h2 id="gallery-title">Selected work</h2>
+          <button class="text-link booking-trigger" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">Get in touch</button>
+        </div>
+
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="./images/nude.jpg"
+              alt="Natural pink manicure with a glossy finish"
+              width="734"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <figure>
+            <img
+              src="./images/floral.jpg"
+              alt="Pink and sage-green nails decorated with flowers"
+              width="446"
+              height="800"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <figure>
+            <img
+              src="./images/burgundy.jpg"
+              alt="Deep burgundy manicure on rounded nails"
+              width="736"
+              height="1104"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <figure>
+            <img
+              src="./images/turquoise.jpg"
+              alt="Turquoise and white nail art with gold details"
+              width="736"
+              height="1302"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <figure>
+            <img
+              src="./images/christmas.jpg"
+              alt="Red festive manicure with snowflakes and holly"
+              width="736"
+              height="1307"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <figure>
+            <img
+              src="./images/autumn.jpg"
+              alt="Olive and orange manicure with fine decorative lines"
+              width="736"
+              height="1104"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="services section container"
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <h2 id="services-title">Care, colour & detail.</h2>
+
+        <ul class="service-list" aria-label="Services">
+          <li>
+            <h3>Classic &amp; express manicure</h3>
+            <p>Nail shaping, cuticle care and hydration, finished with regular nail polish or a clear treatment.</p>
+          </li>
+          <li>
+            <h3>Gel polish / Shellac</h3>
+            <p>Nail preparation and a long-lasting colour finish, typically lasting 3–4 weeks.</p>
+          </li>
+          <li>
+            <h3>Extensions &amp; infills</h3>
+            <p>Gel or acrylic extensions and strengthening, shape modelling, infills for nail regrowth and removal of the previous coating.</p>
+          </li>
+          <li>
+            <h3>Spa care &amp; nail art</h3>
+            <p>Hand soaks, exfoliation, masks and massage, plus French tips, ombré, chrome powders, rhinestones or accent nail designs.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="contact section container"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div>
+          <p class="eyebrow">Let’s connect</p>
+          <h2 id="contact-title">Your next manicure.</h2>
+        </div>
+
+        <div class="contact-content">
+          <p>
+            Get in touch to discuss your preferred design and arrange an
+            appointment.
+          </p>
+
+          <div class="contact-actions">
+            <button class="button" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">
+              <span>Get in touch</span>
+            </button>
+            <a class="text-link" href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="text-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+          <p class="demo-note">Concept website. Appointment requests require confirmation.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <a class="logo" href="#top">Veronika</a>
+
+      <p>
+        © <span id="year">2026</span>
+        Nail Art by Veronika
+      </p>
+
+      <a class="text-link" href="#top">
+        Back to top
+      </a>
+    </footer>
+    <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title" aria-describedby="booking-description">
+      <button class="dialog-close" id="booking-close" type="button" aria-label="Close booking form"><span aria-hidden="true">×</span></button>
+      <p class="eyebrow">Nail Art by Veronika</p>
+      <h2 id="booking-title">A little time for you.</h2>
+      <p class="booking-description" id="booking-description">Choose your preferred date and time. Veronika will contact you to confirm availability.</p>
+      <form class="booking-form" id="booking-form">
+        <label for="booking-name">Your name
+          <input id="booking-name" name="user_name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name" required autofocus>
+        </label>
+        <label for="booking-phone">Phone number
+          <input id="booking-phone" name="user_phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" placeholder="+49 123 4567890" required>
+        </label>
+        <div class="booking-form-row">
+          <label for="booking-date">Preferred date
+            <input id="booking-date" name="requested_date" type="date" required>
+          </label>
+          <label for="booking-time">Preferred time
+            <input id="booking-time" name="requested_time" type="time" required>
+          </label>
+        </div>
+        <p class="form-hint" id="booking-zone"></p>
+        <button class="button" id="booking-submit" type="submit">Send booking request</button>
+        <p class="form-hint">This is a request, not a confirmed appointment. Your details will be used to respond to your request.</p>
+        <p class="form-status" id="booking-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      </form>
+    </dialog>
+  </body>
+</html>
