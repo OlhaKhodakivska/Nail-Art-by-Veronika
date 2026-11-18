@@ -631,3 +631,20 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 
 /* Keep photo entrances inside the page without changing its layout. */
 main { overflow-x: clip; }
+
+/* Compact language controls that match the cream and coral palette. */
+.site-nav { margin-left: auto; order: 1; }
+.logo { order: 0; }
+.menu-toggle { order: 3; }
+.language-switch { order: 2; display: inline-flex; flex: none; gap: 2px; padding: 3px; border: 1px solid var(--line); }
+.language-switch button { min-width: 40px; min-height: 38px; padding: 6px 9px; border: 0; background: transparent; color: var(--muted); font: 600 12px/1.2 var(--sans); cursor: pointer; transition: background 180ms ease, color 180ms ease; }
+.language-switch button[aria-pressed="true"] { background: var(--text); color: var(--background); }
+.language-switch button:hover:not([aria-pressed="true"]) { background: #efd0c680; color: var(--text); }
+.language-switch button:active { transform: translateY(1px); }
+@media (max-width: 700px) {
+  .site-header { gap: 12px; }
+  .language-switch { margin-left: auto; }
+  .language-switch button { min-width: 32px; padding-inline: 6px; }
+  .logo { flex-shrink: 0; }
+  .service-list h3 { overflow-wrap: break-word; }
+}

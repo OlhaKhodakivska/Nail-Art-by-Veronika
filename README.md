@@ -2,7 +2,7 @@
 
 An elegant, responsive digital business card for a nail artist. Warm cream tones, coral accents and editorial typography frame a photo-led presentation of manicure services and selected designs.
 
-Built as an English-language portfolio concept with HTML, CSS and vanilla JavaScript.
+Built as a bilingual German / English portfolio concept with HTML, CSS and vanilla JavaScript. German is the default language; the compact DE / EN switch remembers a visitor’s explicit choice in browser local storage (`veronika-language`).
 
 ## Preview
 
@@ -22,6 +22,7 @@ Screenshots show the local implementation at desktop and mobile viewport sizes.
 ## Features
 
 - Responsive layouts for desktop, tablet and mobile.
+- German by default, with English available through the DE / EN language switch, including form messages and image descriptions.
 - Photo-led hero with a layered desktop composition.
 - Manicure gallery with subtle hover effects.
 - Soft, staggered photo entrances when images first enter the viewport; respects reduced-motion preferences.
@@ -96,6 +97,7 @@ Instagram and WhatsApp currently link to the services’ general websites rather
 veronika-card/
 ├── index.html
 ├── style.css
+├── languages.js          # German / English translations and language preference
 ├── script.js
 ├── favicon.svg
 ├── images/

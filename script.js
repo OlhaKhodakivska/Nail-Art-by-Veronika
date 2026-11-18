@@ -1,4 +1,5 @@
 "use strict";
+const t = (key, values) => window.veronikaI18n.t(key, values);
 
 // Fill these in after creating an EmailJS service and template.
 const EMAIL_CONFIG = {
@@ -25,10 +26,11 @@ const status = document.getElementById("booking-status");
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 let returnFocus = null;
 let sending = false;
+let statusKey = "";
 
 menuButton.hidden = false;
 document.getElementById("booking-zone").textContent =
-  `Your device's time zone: ${timeZone}.`;
+  t("form.zone", { zone: timeZone });
 
 function closeContacts() {
   contactPanel.hidden = true;
@@ -38,7 +40,7 @@ function closeContacts() {
 function closeMenu() {
   navigation.classList.remove("is-open");
   menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open menu");
+  menuButton.setAttribute("aria-label", t("nav.open"));
   closeContacts();
 }
 
@@ -47,7 +49,7 @@ menuButton.addEventListener("click", () => {
   closeContacts();
   navigation.classList.toggle("is-open", open);
   menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuButton.setAttribute("aria-label", t(open ? "nav.close" : "nav.open"));
 });
 
 contactToggle.addEventListener("click", () => {
@@ -67,8 +69,9 @@ function today() {
   return `${date.getFullYear()}-${month}-${day}`;
 }
 
-function setStatus(message, success = false) {
-  status.textContent = message;
+function setStatus(key, success = false) {
+  statusKey = key;
+  status.textContent = key ? t(key) : "";
   status.classList.toggle("is-success", success);
 }
 
@@ -142,24 +145,24 @@ form.addEventListener("submit", async (event) => {
   dateField.min = today();
 
   if (nameField.value.length < 2) {
-    nameField.setCustomValidity("Please enter your name (at least 2 characters).");
+    nameField.setCustomValidity(t("form.invalidName"));
   }
   const digits = phoneField.value.replace(/\D/g, "");
   if (!/^\+?[\d\s().-]+$/.test(phoneField.value) || digits.length < 7 || digits.length > 15) {
-    phoneField.setCustomValidity("Enter a phone number with 7–15 digits, including the country code.");
+    phoneField.setCustomValidity(t("form.invalidPhone"));
   }
   const appointment = new Date(`${dateField.value}T${timeField.value}`);
   if (dateField.value && timeField.value && appointment.getTime() <= Date.now()) {
-    timeField.setCustomValidity("Please choose a future date and time.");
+    timeField.setCustomValidity(t("form.invalidDate"));
   }
   if (!form.reportValidity()) return;
 
   if (!Object.values(EMAIL_CONFIG).every((value) => value.trim())) {
-    setStatus("This concept form is not connected to email yet. No request was sent.");
+    setStatus("form.notConfigured");
     return;
   }
   if (!window.emailjs) {
-    setStatus("The email service could not load. Please check your connection and try again.");
+    setStatus("form.unavailable");
     return;
   }
 
@@ -174,8 +177,8 @@ form.addEventListener("submit", async (event) => {
   form.setAttribute("aria-busy", "true");
   fields.forEach((field) => { field.disabled = true; });
   submitButton.disabled = true;
-  submitButton.textContent = "Sending…";
-  setStatus("Sending your request…");
+  submitButton.textContent = t("form.sending");
+  setStatus("form.sendingStatus");
 
   try {
     await window.emailjs.send(
@@ -185,16 +188,25 @@ form.addEventListener("submit", async (event) => {
       { publicKey: EMAIL_CONFIG.publicKey }
     );
     form.reset();
-    setStatus("Your request has been sent. Veronika will contact you to confirm your appointment.", true);
+    setStatus("form.success", true);
   } catch {
-    setStatus("Your request could not be sent. Your details are still here — please try again.");
+    setStatus("form.failure");
   } finally {
     sending = false;
     form.removeAttribute("aria-busy");
     fields.forEach((field) => { field.disabled = false; });
     submitButton.disabled = false;
-    submitButton.textContent = "Send booking request";
+    submitButton.textContent = t("form.send");
   }
+});
+
+window.addEventListener("veronika:languagechange", () => {
+  menuButton.setAttribute("aria-label", t(menuButton.getAttribute("aria-expanded") === "true" ? "nav.close" : "nav.open"));
+  document.getElementById("booking-zone").textContent = t("form.zone", { zone: timeZone });
+  submitButton.textContent = t(sending ? "form.sending" : "form.send");
+  if (statusKey) status.textContent = t(statusKey);
+  const errors = [[nameField, "form.invalidName"], [phoneField, "form.invalidPhone"], [timeField, "form.invalidDate"]];
+  errors.forEach(([field, key]) => { if (field.validity.customError) field.setCustomValidity(t(key)); });
 });
 
 // Animate each photograph into place once it is loaded and visible.

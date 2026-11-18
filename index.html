@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
 
@@ -9,7 +9,7 @@
 
     <meta
       name="description"
-      content="Manicure, nail art, and care for your hands. Explore the selected nail designs by Veronika."
+      content="Maniküre, Nail Art und Pflege für Ihre Hände. Entdecken Sie ausgewählte Nageldesigns von Veronika." data-i18n-content="meta.description"
     />
 
     <meta name="theme-color" content="#fbf3e9" />
@@ -29,19 +29,24 @@
 
     <link rel="stylesheet" href="./style.css" />
     <script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./languages.js" defer></script>
     <script src="./script.js" defer></script>
   </head>
 
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main" data-i18n="nav.skip">Zum Inhalt</a>
 
     <header class="site-header container" id="top">
-      <a class="logo" href="#top" aria-label="Veronika — home"> Veronika </a>
+      <a class="logo" href="#top" aria-label="Veronika — Startseite" data-i18n-aria-label="nav.home"> Veronika </a>
 
+      <div class="language-switch" role="group" aria-label="Sprache / Language" hidden>
+        <button type="button" data-language="de" lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
+        <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+      </div>
       <button
         class="menu-toggle"
         type="button"
-        aria-label="Open menu"
+        aria-label="Menü öffnen" data-i18n-aria-label="nav.open"
         aria-expanded="false"
         aria-controls="main-navigation"
         hidden
@@ -50,18 +55,16 @@
         <span></span>
       </button>
 
-      <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
+      <nav class="site-nav" id="main-navigation" aria-label="Hauptnavigation" data-i18n-aria-label="nav.main">
         <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#services" data-i18n="nav.services">Leistungen</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Galerie</a></li>
           <li class="contact-dropdown">
-            <button class="nav-contact-toggle" id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-links">
-              Contact
-            </button>
+            <button class="nav-contact-toggle" id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-links" data-i18n="nav.contact">Kontakt</button>
             <div class="contact-panel" id="contact-links" hidden>
               <a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <button type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">Get in touch</button>
+              <button type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog" data-i18n="contact.open">Kontakt aufnehmen</button>
             </div>
           </li>
         </ul>
@@ -76,32 +79,26 @@
             <em>by Veronika</em>
           </h1>
 
-          <p class="hero-description">
-            Manicure, nail art, and care for your hands.
-          </p>
+          <p class="hero-description" data-i18n="hero.description">Maniküre, Nail Art und Pflege für Ihre Hände.</p>
 
           <button class="button booking-link" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">
-            <span>Book Now</span>
+            <span data-i18n="hero.book">Termin anfragen</span>
           </button>
 
-          <div class="social-links" aria-label="Social media">
+          <div class="social-links" aria-label="Soziale Medien" data-i18n-aria-label="nav.social">
             <a
               class="text-link"
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              Open Instagram
-            </a>
+             data-i18n="social.instagram">Instagram öffnen</a>
 
             <a
               class="text-link"
               href="https://www.whatsapp.com/"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              Open WhatsApp
-            </a>
+             data-i18n="social.whatsapp">WhatsApp öffnen</a>
           </div>
         </div>
 
@@ -109,7 +106,7 @@
           <img
             class="hero-photo"
             src="./images/burgundy.jpg"
-            alt="Glossy burgundy manicure against a soft knitted sleeve"
+            alt="Glänzende bordeauxrote Maniküre vor einem weichen Strickärmel" data-i18n-alt="photo.hero"
             width="736"
             height="1104"
             fetchpriority="high"
@@ -118,7 +115,7 @@
           <img
             class="hero-detail"
             src="./images/floral.jpg"
-            alt="Pink and green manicure with delicate floral nail art"
+            alt="Rosa und grüne Maniküre mit zartem Blumen-Nageldesign" data-i18n-alt="photo.detail"
             width="446"
             height="800"
             loading="lazy"
@@ -132,15 +129,15 @@
         aria-labelledby="gallery-title"
       >
         <div class="section-heading">
-          <h2 id="gallery-title">Selected work</h2>
-          <button class="text-link booking-trigger" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">Get in touch</button>
+          <h2 id="gallery-title" data-i18n="gallery.title">Ausgewählte Arbeiten</h2>
+          <button class="text-link booking-trigger" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog" data-i18n="contact.open">Kontakt aufnehmen</button>
         </div>
 
         <div class="gallery-grid">
           <figure>
             <img
               src="./images/nude.jpg"
-              alt="Natural pink manicure with a glossy finish"
+              alt="Natürlich rosafarbene Maniküre mit glänzendem Finish" data-i18n-alt="photo.nude"
               width="734"
               height="1200"
               loading="lazy"
@@ -151,7 +148,7 @@
           <figure>
             <img
               src="./images/floral.jpg"
-              alt="Pink and sage-green nails decorated with flowers"
+              alt="Rosa und salbeigrüne Nägel mit Blumenverzierungen" data-i18n-alt="photo.floral"
               width="446"
               height="800"
               loading="lazy"
@@ -162,7 +159,7 @@
           <figure>
             <img
               src="./images/burgundy.jpg"
-              alt="Deep burgundy manicure on rounded nails"
+              alt="Tief bordeauxrote Maniküre auf abgerundeten Nägeln" data-i18n-alt="photo.burgundy"
               width="736"
               height="1104"
               loading="lazy"
@@ -173,7 +170,7 @@
           <figure>
             <img
               src="./images/turquoise.jpg"
-              alt="Turquoise and white nail art with gold details"
+              alt="Türkis-weißes Nageldesign mit goldenen Details" data-i18n-alt="photo.turquoise"
               width="736"
               height="1302"
               loading="lazy"
@@ -184,7 +181,7 @@
           <figure>
             <img
               src="./images/christmas.jpg"
-              alt="Red festive manicure with snowflakes and holly"
+              alt="Festliche rote Maniküre mit Schneeflocken und Stechpalmenmotiven" data-i18n-alt="photo.christmas"
               width="736"
               height="1307"
               loading="lazy"
@@ -195,7 +192,7 @@
           <figure>
             <img
               src="./images/autumn.jpg"
-              alt="Olive and orange manicure with fine decorative lines"
+              alt="Olivgrüne und orangefarbene Maniküre mit feinen dekorativen Linien" data-i18n-alt="photo.autumn"
               width="736"
               height="1104"
               loading="lazy"
@@ -210,24 +207,24 @@
         id="services"
         aria-labelledby="services-title"
       >
-        <h2 id="services-title">Care, colour & detail.</h2>
+        <h2 id="services-title" data-i18n="services.title">Pflege, Farbe &amp; Detail.</h2>
 
-        <ul class="service-list" aria-label="Services">
+        <ul class="service-list" aria-label="Leistungen" data-i18n-aria-label="nav.services">
           <li>
-            <h3>Classic &amp; express manicure</h3>
-            <p>Nail shaping, cuticle care and hydration, finished with regular nail polish or a clear treatment.</p>
+            <h3 data-i18n="service.classicTitle">Klassische &amp; Express-Maniküre</h3>
+            <p data-i18n="service.classicText">Nägel in Form bringen, Nagelhaut pflegen und Feuchtigkeit spenden – mit klassischem Nagellack oder einer transparenten Pflege als Abschluss.</p>
           </li>
           <li>
-            <h3>Gel polish / Shellac</h3>
-            <p>Nail preparation and a long-lasting colour finish, typically lasting 3–4 weeks.</p>
+            <h3 data-i18n="service.gelTitle">Gellack / Shellac</h3>
+            <p data-i18n="service.gelText">Vorbereitung der Nagelplatte und eine langanhaltende Farbbeschichtung, in der Regel für 3–4 Wochen.</p>
           </li>
           <li>
-            <h3>Extensions &amp; infills</h3>
-            <p>Gel or acrylic extensions and strengthening, shape modelling, infills for nail regrowth and removal of the previous coating.</p>
+            <h3 data-i18n="service.extensionsTitle">Nagelverlängerung &amp; Auffüllen</h3>
+            <p data-i18n="service.extensionsText">Verlängerung oder Verstärkung mit Gel oder Acryl, Modellieren der Form, Auffüllen des herausgewachsenen Ansatzes und Entfernen der bisherigen Beschichtung.</p>
           </li>
           <li>
-            <h3>Spa care &amp; nail art</h3>
-            <p>Hand soaks, exfoliation, masks and massage, plus French tips, ombré, chrome powders, rhinestones or accent nail designs.</p>
+            <h3 data-i18n="service.spaTitle">Spa-Pflege &amp; Nageldesign</h3>
+            <p data-i18n="service.spaText">Handbäder, Peelings, Masken und Massage sowie French Nails, Ombré, Chrome-Puder, Strass oder Akzentdesigns auf einzelnen Nägeln.</p>
           </li>
         </ul>
       </section>
@@ -238,24 +235,21 @@
         aria-labelledby="contact-title"
       >
         <div>
-          <p class="eyebrow">Let’s connect</p>
-          <h2 id="contact-title">Your next manicure.</h2>
+          <p class="eyebrow" data-i18n="contact.kicker">Lassen Sie uns sprechen</p>
+          <h2 id="contact-title" data-i18n="contact.title">Ihre nächste Maniküre.</h2>
         </div>
 
         <div class="contact-content">
-          <p>
-            Get in touch to discuss your preferred design and arrange an
-            appointment.
-          </p>
+          <p data-i18n="contact.description">Kontaktieren Sie Veronika, um Ihr Wunschdesign und einen passenden Termin zu besprechen.</p>
 
           <div class="contact-actions">
             <button class="button" type="button" data-open-booking aria-haspopup="dialog" aria-controls="booking-dialog">
-              <span>Get in touch</span>
+              <span data-i18n="contact.open">Kontakt aufnehmen</span>
             </button>
             <a class="text-link" href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a class="text-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
-          <p class="demo-note">Concept website. Appointment requests require confirmation.</p>
+          <p class="demo-note" data-i18n="contact.demo">Konzeptwebsite. Terminanfragen müssen bestätigt werden.</p>
         </div>
       </section>
     </main>
@@ -268,33 +262,31 @@
         Nail Art by Veronika
       </p>
 
-      <a class="text-link" href="#top">
-        Back to top
-      </a>
+      <a class="text-link" href="#top" data-i18n="nav.top">Nach oben</a>
     </footer>
     <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title" aria-describedby="booking-description">
-      <button class="dialog-close" id="booking-close" type="button" aria-label="Close booking form"><span aria-hidden="true">×</span></button>
+      <button class="dialog-close" id="booking-close" type="button" aria-label="Terminformular schließen" data-i18n-aria-label="form.close"><span aria-hidden="true">×</span></button>
       <p class="eyebrow">Nail Art by Veronika</p>
-      <h2 id="booking-title">A little time for you.</h2>
-      <p class="booking-description" id="booking-description">Choose your preferred date and time. Veronika will contact you to confirm availability.</p>
+      <h2 id="booking-title" data-i18n="form.title">Ein wenig Zeit für Sie.</h2>
+      <p class="booking-description" id="booking-description" data-i18n="form.description">Wählen Sie Ihr Wunschdatum und Ihre Wunschzeit. Veronika meldet sich bei Ihnen, um die Verfügbarkeit zu bestätigen.</p>
       <form class="booking-form" id="booking-form">
-        <label for="booking-name">Your name
-          <input id="booking-name" name="user_name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name" required autofocus>
+        <label for="booking-name"><span data-i18n="form.name">Ihr Name</span>
+          <input id="booking-name" name="user_name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Ihr Name" data-i18n-placeholder="form.name" required autofocus>
         </label>
-        <label for="booking-phone">Phone number
+        <label for="booking-phone"><span data-i18n="form.phone">Telefonnummer</span>
           <input id="booking-phone" name="user_phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" placeholder="+49 123 4567890" required>
         </label>
         <div class="booking-form-row">
-          <label for="booking-date">Preferred date
+          <label for="booking-date"><span data-i18n="form.date">Wunschdatum</span>
             <input id="booking-date" name="requested_date" type="date" required>
           </label>
-          <label for="booking-time">Preferred time
+          <label for="booking-time"><span data-i18n="form.time">Wunschzeit</span>
             <input id="booking-time" name="requested_time" type="time" required>
           </label>
         </div>
         <p class="form-hint" id="booking-zone"></p>
-        <button class="button" id="booking-submit" type="submit">Send booking request</button>
-        <p class="form-hint">This is a request, not a confirmed appointment. Your details will be used to respond to your request.</p>
+        <button class="button" id="booking-submit" type="submit" data-i18n="form.send">Terminanfrage senden</button>
+        <p class="form-hint" data-i18n="form.note">Dies ist eine Anfrage, kein bestätigter Termin. Ihre Angaben werden zur Beantwortung Ihrer Anfrage verwendet.</p>
         <p class="form-status" id="booking-status" role="status" aria-live="polite" aria-atomic="true"></p>
       </form>
     </dialog>
